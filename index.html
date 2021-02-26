@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+<script>
+   /* const {ipcRenderer} = require('electron');
+    function shareData(){
+        ipcRenderer.send("msg","hello from render");
+        ipcRenderer.on("reply",(event,data) =>{
+            console.log(data)
+        })
+        
+    }*/
+    require("./renderer.js")
+</script>
+</head>
+<body>
+    <h1>Hello World!</h1>
+  
+<webview 
+id="myweb" 
+src="https://electformphp.000webhostapp.com/form.php" 
+style="display:inline-flex; width:640px; height:480px">
+
+<div class="loading"> test loading</div>
+
+</webview>
+
+</body>
+</html>
