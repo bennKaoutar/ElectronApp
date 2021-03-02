@@ -13,7 +13,8 @@
         })
         
     }*/
-    require("./renderer.js")
+    
+    
 </script>
 </head>
 <body>
@@ -22,11 +23,19 @@
 <webview 
 id="myweb" 
 src="https://electformphp.000webhostapp.com/form.php" 
-style="display:inline-flex; width:640px; height:480px">
+style="display:inline-flex; width:640px; height:480px"
 
-<div class="loading"> test loading</div>
-
+nodeintegration>
 </webview>
+<!-- <script>
+    var webview=document.getElementById("myweb");
+     webview.addEventListener("dom-ready", function(){
+        webview.openDevTools();
+    });
+</script> -->
+<script>
 
+require("./renderer.js")
+</script>
 </body>
 </html>

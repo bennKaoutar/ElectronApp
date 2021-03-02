@@ -4,7 +4,7 @@ const { app, BrowserWindow, ipcMain} = require('electron')
     console.warn(data) // affiche "ping"
     event.reply('reply', 'from main')
 
-  })*/
+  })
   var webview = document.getElementById("myweb");
 // When everything is ready, trigger the events without problems
   webview.addEventListener("dom-ready", function() {
@@ -29,6 +29,12 @@ const { app, BrowserWindow, ipcMain} = require('electron')
 webview.addEventListener('ipc-message',function(event){
   console.log(event);
   console.info(event.channel);
+});*/
+
+ipcMain.on('invokeAction', function(event,data){
+  var result = processData(data);
+  event.sender.send('actionReply', result);
+  console.warn('test from main');
 });
 
 
@@ -42,7 +48,8 @@ function createWindow () {
     }
   })
 
-  win.loadFile('index.html')
+  //win.loadFile('index.html')
+  win.loadURL(`file://${__dirname}/index.html`)
 }
 
 app.whenReady().then(createWindow)

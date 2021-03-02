@@ -1,11 +1,42 @@
 const {ipcRenderer} = require('electron');
-
+console.log('test from renderer');
 //console.warn('loaded');
-window.onload=()=>{
-    const webview = document.querySelector("#myweb")
-    const loadiing = document.querySelector(".loading")
+
+    //const webview = document.querySelector("#myweb");
+    const webview = document.getElementById('myweb');
+    const loadiing = document.querySelector(".loading");
     
-    webview.addEventListener("did-start-loading", ()=>{
+/*     if(validbtn.clicked == true)
+{
+   console.log("button was clicked");
+} */
+    webview.addEventListener("dom-ready", function(){
+        
+            webview.openDevTools();
+            webview.executeJavaScript("const validbtn= document.querySelector('.kaoutarbtn');   console.log(validbtn);  promise.resolve('validbtn');").then((validbtn)=>console.log(validbtn));
+            
+            //const validbtn= document.querySelector('.kaoutarbtn'); 
+            console.log('DOM fully loaded and parsed');
+            validbtn.addEventListener('click', function(){
+            /*  ipcRenderer.once('actionReply',function(event, response){
+                    processResponse(response);
+                })
+                ipcRenderer.send('invokeAction','someData');  */
+                console.log('test from btn');
+
+                
+            });
+        });
+
+    
+  
+    
+   
+
+
+window.onload =()=>{
+    
+ /*   webview.addEventListener("did-start-loading", ()=>{
         console.warn('loading..');
     })
 
@@ -38,7 +69,7 @@ window.onload=()=>{
  * of the <webview>
  *
  *@returns {String}
- **/
+ *
    function getScripts(){
        var items = [];
        
@@ -47,6 +78,6 @@ window.onload=()=>{
        }
        
        return JSON.stringify(items);
-   }
+   }*/
 
 }
