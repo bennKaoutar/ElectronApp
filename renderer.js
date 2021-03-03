@@ -13,19 +13,26 @@ console.log('test from renderer');
     webview.addEventListener("dom-ready", function(){
         
             webview.openDevTools();
-            webview.executeJavaScript("const validbtn= document.querySelector('.kaoutarbtn');   console.log(validbtn);  promise.resolve('validbtn');").then((validbtn)=>console.log(validbtn));
+            //webview.executeJavaScript("const validbtn= document.querySelector('.kaoutarbtn');  console.log(validbtn);  promise.resolve('validbtn');").then((validbtn)=>console.log(validbtn));
             
             //const validbtn= document.querySelector('.kaoutarbtn'); 
-            console.log('DOM fully loaded and parsed');
+           /*  console.log('DOM fully loaded and parsed');
             validbtn.addEventListener('click', function(){
-            /*  ipcRenderer.once('actionReply',function(event, response){
+             ipcRenderer.once('actionReply',function(event, response){
                     processResponse(response);
                 })
-                ipcRenderer.send('invokeAction','someData');  */
+                ipcRenderer.send('invokeAction','someData');  
                 console.log('test from btn');
 
                 
-            });
+            });*/
+
+            ipcRenderer.on('get-info', () => {
+                const nom = window.document.getElementById('nom').value;
+                
+                ipcRenderer.sendToHost('return-info', {nom});
+              });
+
         });
 
     

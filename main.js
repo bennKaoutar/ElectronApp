@@ -34,7 +34,7 @@ webview.addEventListener('ipc-message',function(event){
 ipcMain.on('invokeAction', function(event,data){
   var result = processData(data);
   event.sender.send('actionReply', result);
-  console.warn('test from main');
+  //console.warn('test from main');
 });
 
 
