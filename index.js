@@ -1,12 +1,15 @@
 
 console.log('u are in index.js')
 const $ = require('jquery');
+const { protocol } = require("electron");
 
 //const webview = document.getElementById('myweb');
 
 const url = "/Users/kbi6/Documents/webView_elect/elect-app-form/form/index.html";
 const divView = window.document.getElementById('webView');
 const webview = window.document.createElement('webview');
+
+
 
 initWebview = () => {
 
@@ -43,7 +46,35 @@ $('#fromWVbtn').on('click', () => {
 addValue = (nom) => {
     const label = window.document.getElementById('display');
     label.innerHTML = nom;
-    console.log(nom);
+    
 }
 
+/*----from my view to WB---*/
 
+const clearAllbtn = document.getElementById("toWBbtn");
+
+$('#toWBbtn').on('click', () => {
+    webview.send('CleatAll');
+});
+
+// function logURL(requestDetails) {
+//     console.log("Chargement : " + requestDetails.url);
+//   }
+  
+//   webview.webRequest.onBeforeRequest.addListener(
+//     logURL,
+//     {urls: ["<all_urls>"]}
+//   );  
+
+  var webViewEl = document.getElementById("myweb"); 
+    webViewEl.addEventListener("did-get-response-details", function(details) {
+    console.log(details); 
+}); 
+
+const content = "you've been connected!";
+
+protocol.interceptHttpProtocol("http", (request, result) => {
+  if (request.url === "http://www.google.com")
+    return result(content);
+  // fetch other http protocol content and return to the electron
+});

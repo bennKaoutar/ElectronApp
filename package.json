@@ -1,6 +1,10 @@
 {
   "name": "my-electron-app",
   "version": "1.0.0",
+  "permissions": [
+    "webRequest",
+    "<all_urls>"
+  ],
   "description": "",
   "main": "main.js",
   "scripts": {
@@ -10,6 +14,7 @@
     "Electron",
     "webview"
   ],
+  
   "author": "kaoutar",
   "license": "MIT",
   "devDependencies": {

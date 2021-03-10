@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Hello World!</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link href="./index.css" rel="stylesheet">
 <script>
    /* const {ipcRenderer} = require('electron');
     function shareData(){
@@ -14,16 +15,27 @@
         
     }*/  
 </script>
+
 </head>
-<body>
-    <h1>Hello World!</h1>
-  
-    <input type="submit" id="fromWVbtn" class="fromWVbtn">
-    <label id="display">test affichage</label>
+<body>  
+    <div class="row">
+    
+    <div class="column">
+    <h1></h1>
+    <button id="fromWVbtn" class="fromWVbtn">I get from WebView</button>
+    <label id="display">I'm a label and i will change</label>
+    <br><br>
+    
+    <button id="toWBbtn">I Clear webView</button>
+    </div>
+
+     <div class="column">
+
     <div id="webView"></div>
-
+    </div>
+</div> 
+</div>
 <script>
-
 require("./index.js")
 </script>
 </body>
