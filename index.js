@@ -73,8 +73,10 @@ $('#toWBbtn').on('click', () => {
 
 const content = "you've been connected!";
 
-protocol.interceptHttpProtocol("http", (request, result) => {
-  if (request.url === "http://www.google.com")
-    return result(content);
-  // fetch other http protocol content and return to the electron
-});
+// protocol.interceptHttpProtocol("http", (request, result) => {
+//   if (request.url === "http://www.google.com")
+//     return result(content);
+//   // fetch other http protocol content and return to the electron
+// });
+
+

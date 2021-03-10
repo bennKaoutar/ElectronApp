@@ -1,5 +1,5 @@
 const {ipcRenderer} = require('electron');
-
+const { protocol } = require("electron");
 
 
 console.log('test from renderer');
@@ -16,8 +16,13 @@ ipcRenderer.on('get-info', () => {
 // {
 //   ipcRenderer.on('get-request',)
 // }
+const btnclick=window.document.getElementById('serve');
 
-
+const content="you're connected";
+protocol.interceptBufferProtocol("http", (request, result) => {
+        if (request.url === "http://www.google.com")
+          return result(content);
+  });
 
 ipcRenderer.on('CleatAll', () => {
     document.getElementById('myform').reset();
