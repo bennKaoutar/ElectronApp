@@ -5,7 +5,7 @@ const { protocol } = require("electron");
 
 //const webview = document.getElementById('myweb');
 
-const url = "/Users/kbi6/Documents/webView_elect/elect-app-form/form/index.html";
+const url = "/form/index.html";
 const divView = window.document.getElementById('webView');
 const webview = window.document.createElement('webview');
 
@@ -57,6 +57,8 @@ $('#toWBbtn').on('click', () => {
     webview.send('CleatAll');
 });
 
+
+
 // function logURL(requestDetails) {
 //     console.log("Chargement : " + requestDetails.url);
 //   }
@@ -66,12 +68,14 @@ $('#toWBbtn').on('click', () => {
 //     {urls: ["<all_urls>"]}
 //   );  
 
-  var webViewEl = document.getElementById("myweb"); 
-    webViewEl.addEventListener("did-get-response-details", function(details) {
-    console.log(details); 
-}); 
 
-const content = "you've been connected!";
+
+//   var webViewEl = document.getElementById("myweb"); 
+//     webViewEl.addEventListener("did-get-response-details", function(details) {
+//     console.log(details); 
+// }); 
+
+// const content = "you've been connected!";
 
 // protocol.interceptHttpProtocol("http", (request, result) => {
 //   if (request.url === "http://www.google.com")
