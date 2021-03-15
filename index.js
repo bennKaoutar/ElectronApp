@@ -1,11 +1,13 @@
+import{wvInterface} from "./wvInterface";
 
 console.log('u are in index.js')
 const $ = require('jquery');
 const { protocol } = require("electron");
 
+const wvInterface = new wvInterface();
 //const webview = document.getElementById('myweb');
 
-const url = "/form/index.html";
+const url = "/Users/kbi6/Documents/webView_elect/form/index.html";
 const divView = window.document.getElementById('webView');
 const webview = window.document.createElement('webview');
 
@@ -40,7 +42,7 @@ initWebview();
 
 
 $('#fromWVbtn').on('click', () => {
-    webview.send('get-info');
+    wvInterface.send('get-info');
 });
 
 addValue = (nom) => {
@@ -54,7 +56,7 @@ addValue = (nom) => {
 const clearAllbtn = document.getElementById("toWBbtn");
 
 $('#toWBbtn').on('click', () => {
-    webview.send('CleatAll');
+    wvInterface.send('CleatAll');
 });
 
 
