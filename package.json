@@ -8,20 +8,19 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-     "build": "tsc",
-    "watch": "tsc -w",
     "start": "electron ."
   },
   "keywords": [
     "Electron",
     "webview"
   ],
-  
   "author": "kaoutar",
   "license": "MIT",
   "devDependencies": {
     "electron": "^11.3.0",
     "typescript": "^3.7.3"
-
+  },
+  "dependencies": {
+    "node-require": "0.0.10"
   }
 }

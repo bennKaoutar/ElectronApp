@@ -1,10 +1,13 @@
 const {ipcRenderer} = require("electron");
 
-import{wvInterface} from "./wvInterface";
+// import{wvInterface} from "./wvInterface";
 
-const wvInterface = new wvInterface;
+// const wvInterface = new wvInterface;
+
 console.log('test from renderer');
 
+// const nom = window.document.getElementById('nom').value;  
+// wvInterface.send(nom);
 
 // ipcRenderer.on('get-info', () => {
 //     const nom = window.document.getElementById('nom').value;  

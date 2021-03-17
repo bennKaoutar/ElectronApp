@@ -28,14 +28,15 @@ function createWindow () {
 
   //win.loadFile('index.html')
   win.loadURL(`file://${__dirname}/index.html`)
-  
-  const content = "you've been connected!";
 
-protocol.interceptHttpProtocol("http", (request, result) => {
-  if (request.url === "http://www.google.com")
-    return result(content);
-  // fetch other http protocol content and return to the electron
-});
+//   const content = "you've been connected!";
+
+// protocol.interceptHttpProtocol("http", (request, result) => {
+//   if (request.url === "http://www.google.com")
+//     return result(content);
+//   // fetch other http protocol content and return to the electron
+// });
+
 }
 
 app.whenReady().then(createWindow)
