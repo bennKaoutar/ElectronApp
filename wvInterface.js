@@ -1,9 +1,12 @@
 //var nodeRequire = require('node-require');
 //var ipcRenderer = require('electron');
 
-//const {ipcRenderer} = require("electron");
 
 
+// import { createRequire } from 'module';
+// const require = createRequire(import.meta.url);
+// const siblingModule = require('./sibling-module');
+// const {ipcRenderer} = require('electron');
 
 let electron;
 let ipcRenderer;
@@ -14,24 +17,27 @@ if(window.nodeRequire){
 }
  
 
-console.log(window.nodeRequire);
+//console.log(nodeRequire);
 
-var Iwebview =(function () {
+const nom = document.getElementById('nom').value;
+console.log(nom);
 
-  ipcRenderer.on('get-info', () => {
-  const nom = window.document.getElementById('nom').value;  
-  ipcRenderer.sendToHost('return-info', nom);
-  }); 
+var Iwebview =(function () { 
 
+Iwebview.prototype.on('get-info',()=>{
+    const nom = window.document.getElementById('nom').value;
+    ipcRenderer.sendToHost('return-info', nom);
+    console.log(nom);
+})
 
-  ipcRenderer.on('CleatAll', () => {
-      document.getElementById('myform').reset();
-  });   
+//   ipcRenderer.on('CleatAll', () => {
+//       document.getElementById('myform').reset();
+//   });   
 
-  ipcRenderer.on('message', ()=>{
-      console.warn('testttt');
+//   ipcRenderer.on('message', ()=>{
+//       console.warn('testttt');
   
-    });
-    return Iwebview;
+//     });
+      return Iwebview;
 })
 window.WebViewElement=new Iwebview();

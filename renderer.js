@@ -1,3 +1,8 @@
+window.nodeRequire = require;
+delete window.require;
+delete window.exports;
+delete window.module;
+
 const {ipcRenderer} = require("electron");
 
 // import{wvInterface} from "./wvInterface";

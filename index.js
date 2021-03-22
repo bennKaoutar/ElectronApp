@@ -2,7 +2,7 @@
 console.log('u are in index.js')
 const $ = require('jquery');
 const { protocol } = require("electron");
-
+var webViewInterfaceModule = require('./wvInterface');
 
 //const webview = document.getElementById('myweb');
 
@@ -33,15 +33,17 @@ initWebview = () => {
             const texte = event.args[0];
             addValue(texte);
         }
+    
     });
-
+    
 }
 
 initWebview();
 
 
 $('#fromWVbtn').on('click', () => {
-    webview.send('get-info');
+    //webview.send('get-info');
+    webViewInterfaceModule.send('get-info');
 });
 
 addValue = (nom) => {
