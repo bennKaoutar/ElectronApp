@@ -3,16 +3,27 @@ delete window.require;
 delete window.exports;
 delete window.module;
 
+
 const {ipcRenderer} = require("electron");
 
-// import{wvInterface} from "./wvInterface";
-
-// const wvInterface = new wvInterface;
+//var webViewInterfaceModule = require('./wvInterface');
 
 console.log('test from renderer');
 
+
+
 // const nom = window.document.getElementById('nom').value;  
-// wvInterface.send(nom);
+// webViewInterfaceModule.send('get-info',nom);
+
+
+// webViewInterfaceModule.send('CleatAll', () => {
+//     document.getElementById('myform').reset();
+// });
+
+ipcRenderer.on('CleatAll', () => {
+    document.getElementById('myform').reset();
+
+}); 
 
 // ipcRenderer.on('get-info', () => {
 //     const nom = window.document.getElementById('nom').value;  

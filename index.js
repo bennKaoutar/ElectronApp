@@ -2,7 +2,7 @@
 console.log('u are in index.js')
 const $ = require('jquery');
 const { protocol } = require("electron");
-var webViewInterfaceModule = require('./wvInterface');
+
 
 //const webview = document.getElementById('myweb');
 
@@ -42,8 +42,8 @@ initWebview();
 
 
 $('#fromWVbtn').on('click', () => {
-    //webview.send('get-info');
-    webViewInterfaceModule.send('get-info');
+    webview.send('get-info');
+    //webViewInterfaceModule.send('get-info');
 });
 
 addValue = (nom) => {
@@ -59,6 +59,7 @@ const clearAllbtn = document.getElementById("toWBbtn");
 $('#toWBbtn').on('click', () => {
     webview.send('CleatAll');
 });
+
 
 
 

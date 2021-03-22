@@ -19,16 +19,27 @@ if(window.nodeRequire){
 
 //console.log(nodeRequire);
 
-const nom = document.getElementById('nom').value;
-console.log(nom);
+
+
+
+
 
 var Iwebview =(function () { 
+     /**
+     * @param   {string}    eventName - Native event/command name
+     * @param   {data}      data - Payload for the event/command
+     */
+      Iwebview.prototype.on = function (eventName, callback) {
+        ipcRenderer.on(eventName,  (e, data) => { callback(data) });
+  }
 
-Iwebview.prototype.on('get-info',()=>{
-    const nom = window.document.getElementById('nom').value;
-    ipcRenderer.sendToHost('return-info', nom);
-    console.log(nom);
-})
+    Iwebview.prototype.on('get-info',()=>{
+        const nom = window.document.getElementById('nom').value;
+        ipcRenderer.sendToHost('return-info', nom);
+        console.log(nom);
+    })
+
+
 
 //   ipcRenderer.on('CleatAll', () => {
 //       document.getElementById('myform').reset();
@@ -40,4 +51,4 @@ Iwebview.prototype.on('get-info',()=>{
 //     });
       return Iwebview;
 })
-window.WebViewElement=new Iwebview();
+window.IWebView=new Iwebview();
