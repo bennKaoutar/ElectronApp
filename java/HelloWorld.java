@@ -2,8 +2,8 @@ class HelloWorld {
 
     printf("Hello World");
     
-    function(String number){
-        number++;
+    public int increment (int number){
+        return number++;
     }
 
 }

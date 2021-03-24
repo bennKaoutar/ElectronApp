@@ -21,6 +21,9 @@
     "typescript": "^3.7.3"
   },
   "dependencies": {
+    "bindings": "^1.5.0",
+    "nan": "^2.14.2",
     "node-require": "0.0.10"
-  }
+  },
+  "repository": "https://github.com/bennKaoutar/ElectronApp.git"
 }

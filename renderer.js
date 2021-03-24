@@ -3,27 +3,34 @@ delete window.require;
 delete window.exports;
 delete window.module;
 
+console.log('test from renderer');
 
 const {ipcRenderer} = require("electron");
 
-//var webViewInterfaceModule = require('./wvInterface');
-
-console.log('test from renderer');
 
 
+// (function (Class, Events) {
+//     'use strict'
+//     var WapCompassApp = Class.extend(Events,{
+//         nsWebViewInterface: window && window.nsWebViewInterface,
+//         init(nom){
+//             this.sendToNative('get-info',nom)
+//         },
 
-// const nom = window.document.getElementById('nom').value;  
-// webViewInterfaceModule.send('get-info',nom);
+//         sendToNativeApp (event, data) {
+//              return this.nsWebViewInterface.emit(event, data)
+//           }   
+//     })
+//     return WapCompassApp;
+// })();
 
-
-// webViewInterfaceModule.send('CleatAll', () => {
-//     document.getElementById('myform').reset();
-// });
 
 ipcRenderer.on('CleatAll', () => {
     document.getElementById('myform').reset();
 
 }); 
+
+
 
 // ipcRenderer.on('get-info', () => {
 //     const nom = window.document.getElementById('nom').value;  

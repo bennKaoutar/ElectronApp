@@ -29,15 +29,16 @@ var Iwebview =(function () {
      * @param   {string}    eventName - Native event/command name
      * @param   {data}      data - Payload for the event/command
      */
-      Iwebview.prototype.on = function (eventName, callback) {
-        ipcRenderer.on(eventName,  (e, data) => { callback(data) });
+      Iwebview.prototype.on = function (eventName, data) {
+        var nom=window.document.getElementsById(data)
+        ipcRenderer.on(eventName,nom);
   }
 
-    Iwebview.prototype.on('get-info',()=>{
-        const nom = window.document.getElementById('nom').value;
-        ipcRenderer.sendToHost('return-info', nom);
-        console.log(nom);
-    })
+    // Iwebview.prototype.on('get-info',()=>{
+//     const nom = window.document.getElementById('nom').value;
+//     ipcRenderer.sendToHost('return-info', nom);
+//     console.log(nom);
+// })
 
 
 
@@ -51,4 +52,5 @@ var Iwebview =(function () {
 //     });
       return Iwebview;
 })
-window.IWebView=new Iwebview();
+window.IWebView=new Iwebview()
+window.nsWebViewInterface=window.Iwebview

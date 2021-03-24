@@ -61,6 +61,17 @@ $('#toWBbtn').on('click', () => {
 });
 
 
+// var hello = require("./indexC++");
+// document.querySelector("#display").innerHTML = hello;
+
+
+
+var wvInterface = require('./wvInterface');
+
+var nom;
+wvInterface.on('get-info',nom);
+
+
 
 
 // function logURL(requestDetails) {
@@ -86,5 +97,6 @@ $('#toWBbtn').on('click', () => {
 //     return result(content);
 //   // fetch other http protocol content and return to the electron
 // });
+
 
 
