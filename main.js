@@ -62,7 +62,7 @@ app.on('activate', () => {
 ipcMain.on('getGreeting', (event) => {
   const java = require("java");
   java.classpath.push(__dirname + "/src");
-  var hello = java.import("Electron.App.Appelec");
+  var hello = java.import("electron.app.Appelec");
   var result = hello.getGreetingSync();
   event.sender.send('updateResult', result);
     
