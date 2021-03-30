@@ -11,7 +11,7 @@ const {ipcRenderer} = require("electron");
 
 // (function (Class, Events) {
 //     'use strict'
-//     var WapCompassApp = Class.extend(Events,{
+//     var Iwv_send = Class.extend(Events,{
 //         nsWebViewInterface: window && window.nsWebViewInterface,
 //         init(nom){
 //             this.sendToNative('get-info',nom)
@@ -21,7 +21,7 @@ const {ipcRenderer} = require("electron");
 //              return this.nsWebViewInterface.emit(event, data)
 //           }   
 //     })
-//     return WapCompassApp;
+//     return Iwv_send;
 // })();
 
 

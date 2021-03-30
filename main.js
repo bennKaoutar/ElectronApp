@@ -54,9 +54,18 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
-  }
-  
-  
+  }  
+})
+
+
+
+ipcMain.on('getGreeting', (event) => {
+  const java = require("java");
+  java.classpath.push(__dirname + "/src");
+  var hello = java.import("Electron.App.Appelec");
+  var result = hello.getGreetingSync();
+  event.sender.send('updateResult', result);
+    
 })
 
 

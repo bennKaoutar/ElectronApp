@@ -1,7 +1,7 @@
 
 console.log('u are in index.js')
 const $ = require('jquery');
-const { protocol } = require("electron");
+const { protocol, ipcRenderer } = require("electron");
 
 
 //const webview = document.getElementById('myweb');
@@ -33,9 +33,9 @@ initWebview = () => {
             const texte = event.args[0];
             addValue(texte);
         }
-    
+
     });
-    
+
 }
 
 initWebview();
@@ -49,7 +49,7 @@ $('#fromWVbtn').on('click', () => {
 addValue = (nom) => {
     const label = window.document.getElementById('display');
     label.innerHTML = nom;
-    
+
 }
 
 /*----from my view to WB---*/
@@ -61,23 +61,29 @@ $('#toWBbtn').on('click', () => {
 });
 
 
-// var hello = require("./indexC++");
-// document.querySelector("#display").innerHTML = hello;
+//btn to get java response
+document.getElementById('fromjava').onclick = function () {
+    ipcRenderer.send('getGreeting');
+}
+
+//display java response
+ipcRenderer.on('updateResult', function (data) {
+    document.getElementById('displayjava').innerHTML = data;
+});
 
 
 
-var wvInterface = require('./wvInterface');
+// var wvInterface = require('./wvInterface');
 
-var nom;
-wvInterface.on('get-info',nom);
-
+// var nom;
+// wvInterface._emit('get-info', nom);
 
 
 
 // function logURL(requestDetails) {
 //     console.log("Chargement : " + requestDetails.url);
 //   }
-  
+
 //   webview.webRequest.onBeforeRequest.addListener(
 //     logURL,
 //     {urls: ["<all_urls>"]}

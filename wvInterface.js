@@ -17,13 +17,6 @@ if(window.nodeRequire){
 }
  
 
-//console.log(nodeRequire);
-
-
-
-
-
-
 var Iwebview =(function () { 
      /**
      * @param   {string}    eventName - Native event/command name
@@ -53,4 +46,4 @@ var Iwebview =(function () {
       return Iwebview;
 })
 window.IWebView=new Iwebview()
-window.nsWebViewInterface=window.Iwebview
+window.Iwv_send=window.Iwebview
