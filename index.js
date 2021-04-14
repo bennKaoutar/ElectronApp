@@ -6,7 +6,7 @@ const { protocol, ipcRenderer } = require("electron");
 
 //const webview = document.getElementById('myweb');
 
-const url = "/Users/kbi6/Documents/GitHub/elect_webView/ElectronApp/form/index.html";
+const url = "./index.html";
 const divView = window.document.getElementById('webView');
 const webview = window.document.createElement('webview');
 
